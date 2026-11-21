@@ -1,0 +1,1 @@
+package net.minecraft.client.renderer.entity.state; public class HumanoidRenderState extends ArmedEntityRenderState { public float swimAmount; public boolean isCrouching, isFallFlying, isVisuallySwimming, isPassenger, isUsingItem; }

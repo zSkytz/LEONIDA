@@ -1,0 +1,1 @@
+package net.minecraft.client.player; public class ClientInput { protected net.minecraft.world.phys.Vec2 moveVector; public void tick(){} public net.minecraft.world.phys.Vec2 getMoveVector(){return moveVector;} }

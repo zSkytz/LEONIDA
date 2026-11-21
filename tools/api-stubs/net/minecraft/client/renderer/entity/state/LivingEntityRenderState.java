@@ -1,0 +1,1 @@
+package net.minecraft.client.renderer.entity.state; public class LivingEntityRenderState extends EntityRenderState { public float bodyRot, yRot, xRot; public boolean isAutoSpinAttack; public net.minecraft.world.entity.Pose pose; }

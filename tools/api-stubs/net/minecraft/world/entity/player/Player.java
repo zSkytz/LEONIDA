@@ -1,0 +1,1 @@
+package net.minecraft.world.entity.player; public abstract class Player extends net.minecraft.world.entity.Avatar { public Abilities getAbilities(){return null;} public void displayClientMessage(net.minecraft.network.chat.Component c, boolean overlay){} }

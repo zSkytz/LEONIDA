@@ -1,0 +1,1 @@
+package net.minecraft.world.level.block.state; public class BlockState { public boolean isAir(){return true;} public net.minecraft.world.phys.shapes.VoxelShape getCollisionShape(net.minecraft.world.level.BlockGetter g, net.minecraft.core.BlockPos p){return null;} }

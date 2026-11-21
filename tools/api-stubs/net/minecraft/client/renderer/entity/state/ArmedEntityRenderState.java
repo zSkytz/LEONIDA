@@ -1,0 +1,1 @@
+package net.minecraft.client.renderer.entity.state; public class ArmedEntityRenderState extends LivingEntityRenderState { public net.minecraft.client.model.HumanoidModel.ArmPose rightArmPose, leftArmPose; public float attackTime; }

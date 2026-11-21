@@ -1,0 +1,44 @@
+       value @0.4s for 20/60/240 fps: 1.0343 1.0343 1.0334 (spread 0.0009)
+[PASS] spring converges & is frame-rate independent
+       max end-effector error: 0.000000 m
+[PASS] two-bone IK reaches targets
+[PASS] euler ZYX matches rotation composition
+       v=1.50 fps= 20 contacts= 19 maxSlip=0.00000 m
+       v=1.50 fps= 60 contacts= 19 maxSlip=0.00000 m
+       v=1.50 fps=144 contacts= 19 maxSlip=0.00000 m
+       v=4.32 fps= 20 contacts= 29 maxSlip=0.00000 m
+       v=4.32 fps= 60 contacts= 28 maxSlip=0.00000 m
+       v=4.32 fps=144 contacts= 28 maxSlip=0.00000 m
+       v=5.61 fps= 20 contacts= 30 maxSlip=0.00000 m
+       v=5.61 fps= 60 contacts= 31 maxSlip=0.00000 m
+       v=5.61 fps=144 contacts= 31 maxSlip=0.00000 m
+[PASS] no foot sliding at constant speed (20/60/144 fps)
+       contacts=55 maxSlip=0.00000 m
+[PASS] no foot sliding while accelerating, braking and turning
+       v=1.50 dist=15.0m steps=22 expected≈22.2 cadence=2.20 steps/s
+       v=4.32 dist=43.2m steps=35 expected≈35.1 cadence=3.50 steps/s
+       v=5.61 dist=56.1m steps=38 expected≈38.0 cadence=3.80 steps/s
+[PASS] cadence matches speed (steps per metre)
+       sequence: [IDLE, START, MOVE, STOP, IDLE]
+[PASS] state graph: idle→start→move→stop→idle
+       legs: peak 20.7 rad/s, peak accel 935 rad/s²; torso accel 129 rad/s²; root accel 108.3 m/s²
+[PASS] transitions are continuous (no pops)
+       after touchdown: LAND, impact 6.5 m/s
+[PASS] jump → airborne → land
+       rigid legs, full bob: mean |error| 0.0280 m, worst float 0.0135 m
+[PASS] rigid rig keeps planted feet on the ground
+       standing on edge: rootY=-0.224 m, right foot y=-0.300, left foot y=0.000
+[PASS] foot IK: pelvis drops to reach lower ground
+       after stop: right(0.12,0.00) left(-0.12,0.00) steps during stop=3
+[PASS] settle steps after stopping
+       reach 95%: 0.30s, stop: 0.20s
+[PASS] input smoother: accel/decel times, no overspeed
+       20 runs × 2000 frames of hostile input: all finite
+[PASS] fuzz: random inputs never produce NaN
+[PASS] config sanitize clamps hostile values
+
+RESULT: 15 passed, 0 failed
+
+== Benchmark ==
+FULL      200 characters: 1.25 µs/character/frame (p99 2.15 µs), 0.249 ms/frame total
+REDUCED   200 characters: 1.01 µs/character/frame (p99 1.15 µs), 0.202 ms/frame total

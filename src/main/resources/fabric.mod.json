@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "motionengine",
+  "version": "${version}",
+  "name": "Motion Engine",
+  "description": "Procedural, physically grounded character locomotion: foot-locked gait, inertia, lean, landing, idle micro-animation and foot IK.",
+  "authors": [],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.motionengine.client.MotionEngineClient"]
+  },
+  "mixins": [
+    { "config": "motionengine.client.mixins.json", "environment": "client" }
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

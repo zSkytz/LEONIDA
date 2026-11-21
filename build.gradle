@@ -1,0 +1,65 @@
+plugins {
+    // 1.21.11 is the last obfuscated version: use the remapping variant of Loom.
+    id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+loom {
+    splitEnvironmentSourceSets()
+    mods {
+        "motionengine" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    // Mojang mappings: Yarn ends at 1.21.11 and 26.1+ is unobfuscated, so this keeps the port trivial.
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("fabric.mod.json") {
+        expand "version": inputs.properties.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+    it.options.encoding = 'UTF-8'
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+// ---- Core verification (pure Java, no Minecraft needed) -------------------------------------
+tasks.register('coreTest', JavaExec) {
+    group = 'verification'
+    description = 'Runs the dependency-free animation core test suite.'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'dev.motionengine.core.CoreSelfTest'
+}
+
+tasks.register('coreBenchmark', JavaExec) {
+    group = 'verification'
+    description = 'Measures animation core cost per character per frame.'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'dev.motionengine.core.CoreBenchmark'
+    args '200', '3000'
+}
+
+check.dependsOn tasks.coreTest

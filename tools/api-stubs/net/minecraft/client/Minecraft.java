@@ -1,0 +1,1 @@
+package net.minecraft.client; public class Minecraft { public net.minecraft.client.player.LocalPlayer player; public net.minecraft.client.gui.screens.Screen screen; public Options options; public static Minecraft getInstance(){return null;} }

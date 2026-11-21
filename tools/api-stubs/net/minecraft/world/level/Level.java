@@ -1,0 +1,1 @@
+package net.minecraft.world.level; public abstract class Level implements BlockGetter { public abstract net.minecraft.world.level.block.state.BlockState getBlockState(net.minecraft.core.BlockPos p); }

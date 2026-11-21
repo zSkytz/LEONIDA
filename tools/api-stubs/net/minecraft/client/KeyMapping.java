@@ -1,0 +1,1 @@
+package net.minecraft.client; public class KeyMapping { public KeyMapping(String id, com.mojang.blaze3d.platform.InputConstants.Type t, int code, Category c){} public boolean isDown(){return false;} public boolean consumeClick(){return false;} public static final class Category { public static Category register(net.minecraft.resources.Identifier id){return null;} } }

@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.motionengine.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "AvatarMixin",
+    "AvatarRenderStateMixin",
+    "AvatarRendererMixin",
+    "HumanoidModelMixin",
+    "ClientInputAccessor",
+    "KeyboardInputMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
